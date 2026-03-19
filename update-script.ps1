@@ -33,8 +33,8 @@ Write-Host "同步 706 文件夹到父仓库..."
 if (Test-Path $target_path) {
     Remove-Item -Recurse -Force $target_path
 }
-# 复制新内容（自动创建 $root_path/706 目录）
-Copy-Item -Recurse $source_706 $root_path -Force
+# 复制新内容
+Copy-Item -Recurse $source_706 $target_path -Force
 
 # 4. 提交变更到父仓库
 Push-Location $root_path

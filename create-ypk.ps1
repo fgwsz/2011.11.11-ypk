@@ -11,5 +11,6 @@ Set-Location $root_path
 Remove-Item -Path ".\*.ypk" -Force -ErrorAction SilentlyContinue
 
 # 打包文件：2011.11.11.cdb 和 script 目录，输出文件名包含日期
-$zip_name = "2011.11.11-电脑手机录像播放三合一通用补丁（$today）.ypk"
+$zip_name = "2011.11.11.zip"
 Compress-Archive -Path "2011.11.11.cdb", "script" -DestinationPath $zip_name -Force
+mv $zip_name "2011.11.11-电脑手机录像播放三合一通用补丁（$today）.ypk" -Force
