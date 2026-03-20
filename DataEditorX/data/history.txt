@@ -1,4 +1,3 @@
 # database history
-C:\Users\15935\AppData\Local\Microsoft\Windows\INetCache\IE\VRL225CC\cards[1].cdb
-D:\Download\2011.11.11.cdb
+Z:\home\wxb\Gitpro\2011.11.11-ypk\2011.11.11-2026.03.19\2011.11.11.cdb
 # script history

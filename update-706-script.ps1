@@ -10,7 +10,7 @@ if (-not $root_path) {
 }
 
 $specials_path = Join-Path $root_path "specials"
-$target_path   = Join-Path $root_path "706"
+$target_path   = Join-Path $root_path "script"
 
 # 1. 克隆/更新外部仓库
 if (-not (Test-Path $specials_path)) {

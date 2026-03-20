@@ -4,7 +4,7 @@ set -e  # 遇到错误立即退出
 # 获取脚本所在目录的绝对路径
 root_path=$(dirname "$(readlink -f "$0")")
 specials_path="$root_path/specials"
-target_path="$root_path/706"  # 父仓库中存放同步内容的目录
+target_path="$root_path/script"  # 父仓库中存放同步内容的目录
 
 # 1. 克隆/更新外部仓库
 if [ ! -d "$specials_path" ]; then
