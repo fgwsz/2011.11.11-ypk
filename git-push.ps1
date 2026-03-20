@@ -12,6 +12,7 @@ if(!($commit_info -eq "q")){
     git add "git-push.sh"
     git add "update-script.ps1"
     git add "update-script.sh"
+    git add ".gitignore"
     git commit -m $commit_info
     git push
 }
