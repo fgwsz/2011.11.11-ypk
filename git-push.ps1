@@ -7,7 +7,7 @@ if(!($commit_info -eq "q")){
     git add "script"
     git add "ocg"
     git add "DataEditorX"
-    git add "README.txt"
+    git add "README.md"
     git add "git-push.ps1"
     git add "git-push.sh"
     git add "update-script.ps1"
