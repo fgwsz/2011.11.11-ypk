@@ -11,8 +11,8 @@ if [ "$commit_info" != "q" ]; then
     git add "DataEditorX"/*
     git add README.md
     git add git-push.sh
-    git add update-706-script.ps1
-    git add update-706-script.sh
+    git add update-script.ps1
+    git add update-script.sh
     git commit -m "$commit_info"
     git push
 fi
