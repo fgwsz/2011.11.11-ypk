@@ -1,13 +1,8 @@
-#!/usr/bin/env pwsh
 # 遇到错误立即退出（手动检查外部命令退出码）
 $ErrorActionPreference = 'Stop'
 
-# 获取脚本所在目录的绝对路径（兼容 PowerShell 3.0+）
-$root_path = $PSScriptRoot
-if (-not $root_path) {
-    # 旧版本 PowerShell 的备用方法
-    $root_path = Split-Path -Parent $MyInvocation.MyCommand.Path
-}
+# 获取脚本所在目录的绝对路径
+$root_path = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 $specials_path = Join-Path $root_path "specials"
 $target_path   = Join-Path $root_path "script"

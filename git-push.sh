@@ -14,6 +14,8 @@ if [ "$commit_info" != "q" ]; then
     git add git-push.sh
     git add update-script.ps1
     git add update-script.sh
+    git add create-ypk.ps1
+    git add create-ypk.sh
     git add .gitignore
     git commit -m "$commit_info"
     git push
