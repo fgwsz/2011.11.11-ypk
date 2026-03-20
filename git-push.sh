@@ -10,6 +10,7 @@ if [ "$commit_info" != "q" ]; then
     git add "ocg"/*
     git add "DataEditorX"/*
     git add README.md
+    git add git-push.ps1
     git add git-push.sh
     git add update-script.ps1
     git add update-script.sh
