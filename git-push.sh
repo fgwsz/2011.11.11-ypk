@@ -16,6 +16,7 @@ if [ "$commit_info" != "q" ]; then
     git add update-script.sh
     git add create-ypk.ps1
     git add create-ypk.sh
+    git add script-card-list.txt
     git add .gitignore
     git commit -m "$commit_info"
     git push
