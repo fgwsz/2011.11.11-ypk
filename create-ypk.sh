@@ -8,3 +8,4 @@ today=$(date +%Y.%m.%d)
 cd "$root_path"
 rm -rf ./*.ypk
 zip -r "2011.11.11-电脑手机录像播放三合一通用补丁（$today）.ypk" "2011.11.11.cdb" "script"
+cp "change-log.txt" "2011.11.11-补丁使用方式及更新记录（$today）.txt"
