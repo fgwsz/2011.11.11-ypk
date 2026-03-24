@@ -16,6 +16,7 @@ if(!($commit_info -eq "q")){
     git add "create-ypk.sh"
     git add "script-card-list.txt"
     git add "series-change-list.txt"
+    git add "effect-info-change-list.txt"
     git add "change-log.txt"
     git add ".gitignore"
     git commit -m $commit_info
