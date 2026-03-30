@@ -7,6 +7,7 @@ if [ "$commit_info" != "q" ]; then
     cd "$root_path"
     git add "2011.11.11.cdb"
     git add "script"/*
+    git add "utility.lua"
     git add "ocg"/*
     git add "DataEditorX"/*
     git add README.md
