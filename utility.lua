@@ -4,7 +4,7 @@ POS_FACEUP_DEFENCE=POS_FACEUP_DEFENSE
 POS_FACEDOWN_DEFENCE=POS_FACEDOWN_DEFENSE
 RACE_CYBERS=RACE_CYBERSE
 NULL_VALUE=-10
---2026.03.31 script/special.lua begin
+--2026.04.03 script/special.lua begin
 -- 解决光道武僧踢反转怪的问题跟反转召唤被神警不算场上送墓的问题
 Auxiliary.__flip_effect_list = Auxiliary.__flip_effect_list or {}
 
@@ -87,7 +87,7 @@ function Auxiliary.PreloadUds()
 						if c:IsLocation(LOCATION_ONFIELD) and c:IsSummonType(SUMMON_TYPE_FLIP) and re~=nil and re:GetCode() == EVENT_FLIP_SUMMON and re:GetCategory()&CATEGORY_DISABLE_SUMMON ~= 0 then
 							return false
 						end
-						return old_condition and old_condition(e2,tp2,eg2,ep2,ev2,re2,r2,rp2) or true
+						return old_condition == nil or old_condition(e2,tp2,eg2,ep2,ev2,re2,r2,rp2)
 					end)
 				end
 			end
@@ -111,7 +111,7 @@ function Auxiliary.PreloadUds()
 end	
 
 Auxiliary.PreloadUds()
---2026.03.31 script/special.lua end
+--2026.04.03 script/special.lua end
 function GetID()
 	local offset=self_code<100000000 and 1 or 100
 	return self_table,self_code,offset
