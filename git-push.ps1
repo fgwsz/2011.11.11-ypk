@@ -16,7 +16,6 @@ if(!($commit_info -eq "q")){
     git add "update-script.sh"
     git add "create-ypk.ps1"
     git add "create-ypk.sh"
-    git add "script-card-list.txt"
     git add "series-change-list.txt"
     git add "effect-info-change-list.txt"
     git add "change-log.txt"
