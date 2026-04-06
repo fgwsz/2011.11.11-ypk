@@ -6,6 +6,7 @@ read -p "Input Git Commit Info: " commit_info
 if [ "$commit_info" != "q" ]; then
     cd "$root_path"
     git add "2011.11.11.cdb"
+    git add "706.cdb"
     git add "script"/*
     git add "utility.lua"
     git add "about-utility.txt"
