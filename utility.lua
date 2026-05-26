@@ -4,6 +4,7 @@ POS_FACEUP_DEFENCE=POS_FACEUP_DEFENSE
 POS_FACEDOWN_DEFENCE=POS_FACEDOWN_DEFENSE
 RACE_CYBERS=RACE_CYBERSE
 NULL_VALUE=-10
+
 --2026.04.20 script/special.lua begin
 -- 解决光道武僧踢反转怪的问题跟反转召唤被神警不算场上送墓的问题
 Auxiliary.__flip_effect_list = Auxiliary.__flip_effect_list or {}
@@ -2088,4 +2089,10 @@ function Auxiliary.MonsterEffectPropertyFilter(flag)
 	return function (e)
 		return e:IsHasProperty(flag) and not e:IsHasRange(LOCATION_PZONE)
 	end
+end
+---The `nolimit` parameter for Special Summon effects of Phantasms cards
+---@param c Card
+---@return boolean
+function Auxiliary.PhantasmsSpSummonType(c)
+	return c:IsType(TYPE_SPSUMMON)
 end
