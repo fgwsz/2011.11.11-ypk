@@ -32,6 +32,7 @@
             超量领域 04545854
             暗黑瘴气 41930553
         以上是2011.11.15发行的TCG706独有卡，出于对环境平衡性的考虑，剔除
+    2.更新utility.lua到script:以最新版YGOPro的utility.lua作为基础修改.
 
 2026.05.26
     1.更新utility.lua到script:以最新版YGOPro的utility.lua作为基础修改.
