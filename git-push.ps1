@@ -21,6 +21,7 @@ if(!($commit_info -eq "q")){
     git add "series-change-list.txt"
     git add "effect-info-change-list.txt"
     git add "change-log.txt"
+    git add "reduce-cards.txt"
     git add ".gitignore"
     git commit -m $commit_info
     git push
