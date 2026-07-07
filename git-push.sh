@@ -21,8 +21,8 @@ if [ "$commit_info" != "q" ]; then
     git add update-script.sh
     git add diff-special_lua.ps1
     git add diff-special_lua.sh
-    git add create-ypk.sh
-    git add create-ypk.ps1
+    git add create-ypk-utf8.ps1
+    git add create-ypk-cp936.ps1
     git add create-ypk.sh
     git add series-change-list.txt
     git add effect-info-change-list.txt
