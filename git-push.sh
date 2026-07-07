@@ -9,6 +9,7 @@ if [ "$commit_info" != "q" ]; then
     git add "2011.11.11-reduce.cdb"
     git add "706.cdb"
     git add "script"/*
+    git add "special.lua"
     git add "utility.lua"
     git add "about-utility.txt"
     git add "ocg"/*
@@ -18,6 +19,9 @@ if [ "$commit_info" != "q" ]; then
     git add git-push.sh
     git add update-script.ps1
     git add update-script.sh
+    git add diff-special_lua.ps1
+    git add diff-special_lua.sh
+    git add create-ypk.sh
     git add create-ypk.ps1
     git add create-ypk.sh
     git add series-change-list.txt
