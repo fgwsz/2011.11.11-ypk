@@ -117,6 +117,9 @@ function Auxiliary.dserodcon(e,tp,eg,ep,ev,re,r,rp)
 	return bc~=nil and bc:IsReason(REASON_BATTLE)
 end
 
+--exec Preload
+Auxiliary.PreloadUds()
+
 function GetID()
 	local offset=self_code<100000000 and 1 or 100
 	return self_table,self_code,offset
