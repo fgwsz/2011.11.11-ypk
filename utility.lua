@@ -1,3 +1,4 @@
+-- Part 1: Head from ocg/utility.lua (before the first function)
 Auxiliary={}
 aux=Auxiliary
 POS_FACEUP_DEFENCE=POS_FACEUP_DEFENSE
@@ -5,6 +6,8 @@ POS_FACEDOWN_DEFENCE=POS_FACEDOWN_DEFENSE
 RACE_CYBERS=RACE_CYBERSE
 NULL_VALUE=-10
 
+
+-- Part 2: Content from script/special.lua
 -- 解决光道武僧踢反转怪的问题跟反转召唤被神警不算场上送墓的问题
 Auxiliary.__flip_effect_list = Auxiliary.__flip_effect_list or {}
 
@@ -116,10 +119,11 @@ function Auxiliary.dserodcon(e,tp,eg,ep,ev,re,r,rp)
 	local bc=c:GetBattleTarget()
 	return bc~=nil and bc:IsReason(REASON_BATTLE)
 end
-
+-- Part 3: Preload
 --exec Preload
 Auxiliary.PreloadUds()
 
+-- Part 4: Tail from ocg/utility.lua (from the first function onward)
 function GetID()
 	local offset=self_code<100000000 and 1 or 100
 	return self_table,self_code,offset
