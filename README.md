@@ -3,9 +3,26 @@
 
 ## 使用方法
 ### 1.生成补丁
-`Windows`系统运行`./create-ypk.ps1`
+`Windows`系统(GBK编码)运行
+```powershell
+./update-script.ps1
+./create-utility_lua.ps1
+./create-ypk-cp936.ps1
+```
 
-`Linux`  系统运行`./create-ypk.sh`
+`Windows`系统(unicode编码)运行
+```powershell
+./update-script.ps1
+./create-utility_lua.ps1
+./create-ypk-utf8.ps1
+```
+
+`Linux`  系统运行
+```bash
+./update-script.sh
+./create-utility_lua.sh
+./create-ypk.sh
+```
 ### 2.将补丁存放到指定位置
 `YGOPro`    根目录 `expansions`文件夹下(如果没有这个文件夹请新建一个)
 
@@ -26,4 +43,4 @@
 
 `DataEditorX`:
 
-<https://github.com/247321453/DataEditor/tree/master/win32/win32.zip>
+<https://github.com/247321453/DataEditor>
