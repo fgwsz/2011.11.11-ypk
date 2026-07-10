@@ -43,4 +43,4 @@
 
 `DataEditorX`:
 
-<https://github.com/247321453/DataEditor>
+<https://github.com/247321453/DataEditorX>
