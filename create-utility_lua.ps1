@@ -10,7 +10,7 @@
     3. Preload block + blank line
     4. Tail
     Each part is prefixed with an English comment.
-    All read/write operations use UTF-8 encoding (without BOM for output).
+    Files are read using UTF-8 (supports both BOM and no‑BOM) and written as UTF-8 without BOM.
 .NOTES
     File name: update-utility_lua.ps1
     Requires PowerShell 5.1 or later (PowerShell Core recommended).
@@ -28,7 +28,7 @@ $OcgUtility = 'ocg/utility.lua'
 $SpecialLua = 'script/special.lua'
 $OutputUtility = 'utility.lua'
 
-# Full output path (used for .NET write method)
+# Full output path
 $OutputFullPath = Join-Path -Path $ScriptDir -ChildPath $OutputUtility
 
 # Check required files exist
@@ -41,9 +41,10 @@ if (-not (Test-Path $SpecialLua)) {
     exit 1
 }
 
-# ---- Read all files with explicit UTF-8 encoding ----
-$allLines = Get-Content -Path $OcgUtility -ReadCount 0 -Encoding UTF8
-$specialLines = Get-Content -Path $SpecialLua -ReadCount 0 -Encoding UTF8
+# ---- Read all files using UTF-8 (BOM or no‑BOM handled automatically) ----
+$utf8 = [System.Text.Encoding]::UTF8
+$allLines = [System.IO.File]::ReadAllLines((Resolve-Path $OcgUtility).Path, $utf8)
+$specialLines = [System.IO.File]::ReadAllLines((Resolve-Path $SpecialLua).Path, $utf8)
 
 # Find the first 'function' definition line (ignoring leading whitespace)
 $funcLine = $null
@@ -92,10 +93,11 @@ $outputLines.Add('-- Part 4: Tail from ocg/utility.lua (from the first function 
 $outputLines.AddRange($tailLines)
 
 # ---- Write output as UTF-8 without BOM ----
+$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 [System.IO.File]::WriteAllLines(
     $OutputFullPath,
     $outputLines,
-    [System.Text.UTF8Encoding]::new($false)   # $false = no BOM
+    $utf8NoBom
 )
 
 Write-Host "Successfully generated $OutputUtility"
