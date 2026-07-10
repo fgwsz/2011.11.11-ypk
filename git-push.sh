@@ -24,6 +24,7 @@ if [ "$commit_info" != "q" ]; then
     git add create-ypk-utf8.ps1
     git add create-ypk-cp936.ps1
     git add create-ypk.sh
+    git add create-utility_lua.ps1
     git add create-utility_lua.sh
     git add series-change-list.txt
     git add effect-info-change-list.txt
