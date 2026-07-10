@@ -10,9 +10,10 @@
     3. Preload block + blank line
     4. Tail
     Each part is prefixed with an English comment.
+    All read/write operations use UTF-8 encoding (without BOM for output).
 .NOTES
     File name: update-utility_lua.ps1
-    Requires PowerShell 5.1 or later (PowerShell Core recommended for best UTF-8 support).
+    Requires PowerShell 5.1 or later (PowerShell Core recommended).
 #>
 
 Set-StrictMode -Version Latest
@@ -27,6 +28,9 @@ $OcgUtility = 'ocg/utility.lua'
 $SpecialLua = 'script/special.lua'
 $OutputUtility = 'utility.lua'
 
+# Full output path (used for .NET write method)
+$OutputFullPath = Join-Path -Path $ScriptDir -ChildPath $OutputUtility
+
 # Check required files exist
 if (-not (Test-Path $OcgUtility)) {
     Write-Error "Error: $OcgUtility not found"
@@ -37,14 +41,15 @@ if (-not (Test-Path $SpecialLua)) {
     exit 1
 }
 
-# Read all lines of ocg/utility.lua
-$allLines = Get-Content -Path $OcgUtility -ReadCount 0
+# ---- Read all files with explicit UTF-8 encoding ----
+$allLines = Get-Content -Path $OcgUtility -ReadCount 0 -Encoding UTF8
+$specialLines = Get-Content -Path $SpecialLua -ReadCount 0 -Encoding UTF8
 
-# Find the first line that contains a 'function' definition (ignoring leading whitespace)
+# Find the first 'function' definition line (ignoring leading whitespace)
 $funcLine = $null
 for ($i = 0; $i -lt $allLines.Count; $i++) {
     if ($allLines[$i] -match '^\s*function\s') {
-        $funcLine = $i + 1   # convert to 1‑based line number
+        $funcLine = $i + 1   # 1‑based line number
         break
     }
 }
@@ -57,9 +62,6 @@ if ($null -eq $funcLine) {
 # Extract head (lines before the first function) and tail (from the function onward)
 $headLines = $allLines[0..($funcLine - 2)]   # 0‑based indices
 $tailLines = $allLines[($funcLine - 1)..($allLines.Count - 1)]
-
-# Read script/special.lua
-$specialLines = Get-Content -Path $SpecialLua -ReadCount 0
 
 # Preload block
 $preloadLines = @(
@@ -89,12 +91,12 @@ $outputLines.Add('')
 $outputLines.Add('-- Part 4: Tail from ocg/utility.lua (from the first function onward)')
 $outputLines.AddRange($tailLines)
 
-# Write to output file as UTF-8 without BOM (best compatibility)
+# ---- Write output as UTF-8 without BOM ----
 [System.IO.File]::WriteAllLines(
-    (Resolve-Path $OutputUtility).Path,
+    $OutputFullPath,
     $outputLines,
     [System.Text.UTF8Encoding]::new($false)   # $false = no BOM
 )
 
 Write-Host "Successfully generated $OutputUtility"
-Pop-Location   # restore original directory
+Pop-Location
