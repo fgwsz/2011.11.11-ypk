@@ -76,21 +76,21 @@ $outputLines = [System.Collections.Generic.List[string]]::new()
 
 # 1. Head
 $outputLines.Add('-- Part 1: Head from ocg/utility.lua (before the first function)')
-$outputLines.AddRange($headLines)
+$outputLines.AddRange([string[]]$headLines)
 $outputLines.Add('')   # blank separator
 
 # 2. special.lua
 $outputLines.Add('-- Part 2: Content from script/special.lua')
-$outputLines.AddRange($specialLines)
+$outputLines.AddRange([string[]]$specialLines)
 $outputLines.Add('')
 
 # 3. Preload
-$outputLines.AddRange($preloadLines)
+$outputLines.AddRange([string[]]$preloadLines)
 $outputLines.Add('')
 
 # 4. Tail
 $outputLines.Add('-- Part 4: Tail from ocg/utility.lua (from the first function onward)')
-$outputLines.AddRange($tailLines)
+$outputLines.AddRange([string[]]$tailLines)
 
 # ---- Write output as UTF-8 without BOM ----
 $utf8NoBom = [System.Text.UTF8Encoding]::new($false)

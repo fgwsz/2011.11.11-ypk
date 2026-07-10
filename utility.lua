@@ -119,6 +119,7 @@ function Auxiliary.dserodcon(e,tp,eg,ep,ev,re,r,rp)
 	local bc=c:GetBattleTarget()
 	return bc~=nil and bc:IsReason(REASON_BATTLE)
 end
+
 -- Part 3: Preload
 --exec Preload
 Auxiliary.PreloadUds()
