@@ -19,12 +19,14 @@ if [ "$commit_info" != "q" ]; then
     git add update-script.sh
     git add create-utility_lua.sh
     git add create-ypk.sh
+    git add create-706-ypk.sh
     git add git-push.sh
     #windows script
     git add update-script.ps1
     git add create-utility_lua.ps1
     git add create-ypk-utf8.ps1
     git add create-ypk-cp936.ps1
+    git add create-706-ypk.ps1
     git add git-push.ps1
     #doc
     git add series-change-list.txt
