@@ -5,21 +5,18 @@
 ### 1.生成补丁
 `Windows`系统(GBK编码)运行
 ```powershell
-./update-script.ps1
 ./create-utility_lua.ps1
 ./create-ypk-cp936.ps1
 ```
 
 `Windows`系统(unicode编码)运行
 ```powershell
-./update-script.ps1
 ./create-utility_lua.ps1
 ./create-ypk-utf8.ps1
 ```
 
 `Linux`  系统运行
 ```bash
-./update-script.sh
 ./create-utility_lua.sh
 ./create-ypk.sh
 ```
