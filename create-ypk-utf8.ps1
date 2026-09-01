@@ -8,7 +8,7 @@ $today = Get-Date -Format "yyyy.MM.dd"
 Set-Location $root_path
 
 # 删除当前目录下所有 .ypk 文件（-Force 忽略错误，如文件不存在）
-Remove-Item -Path ".\*.ypk" -Force -ErrorAction SilentlyContinue
+Remove-Item -Path ".\2011.11.11-*.ypk" -Force -ErrorAction SilentlyContinue
 
 # 打包文件：2011.11.11.cdb 和 script 目录，输出文件名包含日期
 $zip_name = "2011.11.11.zip"

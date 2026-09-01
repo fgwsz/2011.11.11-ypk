@@ -4,7 +4,7 @@ $today = Get-Date -Format "yyyyMMdd"
 
 Set-Location $root_path
 
-Remove-Item -Path ".\*.ypk" -Force -ErrorAction SilentlyContinue
+Remove-Item -Path ".\706-*.ypk" -Force -ErrorAction SilentlyContinue
 
 $zip_name = "706-$today.zip"
 cp "utility.lua" "script"
